@@ -9,6 +9,6 @@
       "lib": ["DOM", "ES6"],
       "strict": true,
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "**/*.ts"],
     // "include": ["**/*.ts"]
   }

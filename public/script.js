@@ -1,10 +1,12 @@
 "use strict";
 (function () {
     const inputForm = document.getElementById('guess-form');
+    const userNumberPath = document.getElementById('guess');
     const min = 1;
     const max = 22;
+    console.log(typeof (userNumberPath));
     if (inputForm === null) {
-        return alert("Please enter a number between 1 and 22!");
+        return alert(`Please enter a number between ${min} and ${max}!`);
     }
     else {
         inputForm.addEventListener("submit", compareUserGuess);
@@ -12,13 +14,12 @@
     function compareUserGuess(event) {
         event.preventDefault();
         const secretNumber = generateSecretNumber();
-        const userNumberPath = document.getElementById('guess');
         const userNumber = Number(userNumberPath.value);
-        if (userNumberPath === null) {
-            return alert("Please enter a number between 1 and 22!");
+        if (userNumberPath === null || userNumber > max || userNumber < min || isNaN(userNumber)) {
+            return alert(`Please enter a number between ${min} and ${max}!`);
         }
         else {
-            if (secretNumber == userNumber) {
+            if (secretNumber === userNumber) {
                 alert("Awesome! You number " + userNumber + " was correct. You can be named many things, hungry not being one of them.");
             }
             else {
@@ -27,10 +28,10 @@
         }
     }
     function generateSecretNumber() {
-        const secretNumber = getRandomArbitrary(1, 22);
+        const secretNumber = getRandomArbitrary();
         return secretNumber;
     }
-    function getRandomArbitrary(min, max) {
+    function getRandomArbitrary() {
         return Math.round(Math.random() * (max - min) + min);
     }
 })();
