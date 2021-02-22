@@ -4,7 +4,6 @@
     const userNumberPath = document.getElementById('guess');
     const min = 1;
     const max = 22;
-    console.log(typeof (userNumberPath));
     if (inputForm === null) {
         return alert(`Please enter a number between ${min} and ${max}!`);
     }
@@ -15,7 +14,7 @@
         event.preventDefault();
         const secretNumber = generateSecretNumber();
         const userNumber = Number(userNumberPath.value);
-        if (userNumberPath === null || userNumber > max || userNumber < min || isNaN(userNumber)) {
+        if (userNumber > max || userNumber < min || isNaN(userNumber)) {
             return alert(`Please enter a number between ${min} and ${max}!`);
         }
         else {

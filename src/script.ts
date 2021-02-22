@@ -1,9 +1,9 @@
 (function() {
-    const  inputForm = document.getElementById('guess-form');
+    const inputForm = document.getElementById('guess-form');
     const userNumberPath = <HTMLInputElement>document.getElementById('guess');
     const min: number = 1;
     const max: number = 22;
-    console.log(typeof(userNumberPath));
+
     if (inputForm === null) {
         return alert(`Please enter a number between ${min} and ${max}!`);
     } else {
@@ -15,7 +15,7 @@
         const secretNumber: number = generateSecretNumber();
         const userNumber: number = Number(userNumberPath.value);
 
-        if (userNumberPath === null || userNumber > max || userNumber < min || isNaN(userNumber)) {
+        if (userNumber > max || userNumber < min || isNaN(userNumber)) {
             return alert(`Please enter a number between ${min} and ${max}!`);
         } else {
             if (secretNumber === userNumber) {
@@ -24,7 +24,6 @@
                 alert("Bummer... You guessed " + userNumber + " and the secret number was " + secretNumber + ".");
             }
         }
-
     }
 
     function generateSecretNumber(): number {
